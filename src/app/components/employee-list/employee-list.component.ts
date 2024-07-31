@@ -22,10 +22,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
   filteredEmployees: Employee[] = [];
-  sortDirection = true; // True for ascending, false for descending
+  sortDirection = true;
   activeSortField: keyof Employee | '' = '';
   p: number = 1;
   itemsPerPage: number = 5;
+  searchTerm: string = '';
+  filterValue: string = '';
 
   constructor(private employeeService: EmployeeService) {}
 
@@ -36,25 +38,27 @@ export class EmployeeListComponent implements OnInit {
     });
   }
   onSearch(event: any) {
-    const searchTerm = event.target.value.toLowerCase();
-    this.filteredEmployees = this.employees.filter(
-      (employee) =>
-        employee.firstName.toLowerCase().includes(searchTerm) ||
-        employee.lastName.toLowerCase().includes(searchTerm)
-    );
-    this.p = 1;
+    this.searchTerm = event.target.value.toLowerCase();
+    this.applyFilters();
   }
+
   onFilter(event: any) {
-    const filterValue = event.target.value;
-    if (filterValue) {
-      this.filteredEmployees = this.employees.filter(
-        (employee) => employee.jobTitle === filterValue
-      );
-      this.p = 1;
-    } else {
-      this.filteredEmployees = this.employees;
-      this.p = 1;
-    }
+    this.filterValue = event.target.value;
+    this.applyFilters();
+  }
+
+  applyFilters() {
+    this.filteredEmployees = this.employees.filter((employee) => {
+      const matchesSearch =
+        employee.firstName.toLowerCase().includes(this.searchTerm) ||
+        employee.lastName.toLowerCase().includes(this.searchTerm);
+      const matchesFilter = this.filterValue
+        ? employee.jobTitle === this.filterValue
+        : true;
+      return matchesSearch && matchesFilter;
+    });
+
+    this.p = 1;
   }
   sortBy(key: keyof Employee) {
     if (this.activeSortField === key) {

@@ -8,8 +8,7 @@ import {
 } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { Employee } from '../../models/employee.model';
-import { v4 as uuidv4 } from 'uuid'; // Import the uuid function
-
+import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'app-employee-form',
   standalone: true,

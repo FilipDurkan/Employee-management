@@ -4,7 +4,7 @@
       <label
         for="firstName"
         class="block text-sm font-medium leading-6 text-gray-900"
-        >First Name</label
+        >Ime</label
       >
       <div class="mt-2">
         <input
@@ -17,7 +17,7 @@
           *ngIf="isSubmitted && employeeForm.get('firstName')?.invalid"
           class="text-red-600 text-sm pt-2"
         >
-          First Name is required
+          Ime mora biti ispunjeno
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
       <label
         for="lastName"
         class="block text-sm font-medium leading-6 text-gray-900"
-        >Last Name</label
+        >Prezime</label
       >
       <div class="mt-2">
         <input
@@ -39,7 +39,7 @@
           *ngIf="isSubmitted && employeeForm.get('lastName')?.invalid"
           class="text-red-600 text-sm pt-2"
         >
-          Last Name is required
+          Prezime mora biti ispunjeno
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
       <label
         for="dateOfBirth"
         class="block text-sm font-medium leading-6 text-gray-900"
-        >Date of Birth</label
+        >Datum rođenja</label
       >
       <div class="mt-2">
         <input
@@ -61,7 +61,7 @@
           *ngIf="isSubmitted && employeeForm.get('dateOfBirth')?.invalid"
           class="text-red-600 text-sm pt-2"
         >
-          Date of Birth is required
+          Datum rođenja mora biti ispunjen
         </div>
       </div>
     </div>
@@ -70,7 +70,7 @@
       <label
         for="jobTitle"
         class="block text-sm font-medium leading-6 text-gray-900"
-        >Job Title</label
+        >Pozicija</label
       >
       <div class="mt-2">
         <select
@@ -90,7 +90,7 @@
           *ngIf="isSubmitted && employeeForm.get('jobTitle')?.invalid"
           class="text-red-600 text-sm pt-2"
         >
-          Job Title is required
+          Pozicija mora biti ispunjena
         </div>
       </div>
     </div>
@@ -101,7 +101,7 @@
         (click)="onSave()"
         class="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
       >
-        Save
+        Spremi
       </button>
     </div>
   </form>

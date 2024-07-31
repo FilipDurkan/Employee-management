@@ -3,7 +3,7 @@ import { EmployeeFormComponent } from './components/employee-form/employee-form.
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: 'employees', component: EmployeeListComponent },
-  { path: 'add-employee', component: EmployeeFormComponent },
-  { path: '', redirectTo: 'employees', pathMatch: 'full' },
+  { path: 'zaposlenici', component: EmployeeListComponent },
+  { path: 'dodaj-zaposlenika', component: EmployeeFormComponent },
+  { path: '', redirectTo: 'zaposlenici', pathMatch: 'full' },
 ];

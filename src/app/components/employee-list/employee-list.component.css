@@ -1,0 +1,13 @@
+.pagination ::ng-deep .ngx-pagination .current {
+  background: #3949ab;
+}
+.pagination ::ng-deep .ngx-pagination .pagination-next a:after,
+.pagination ::ng-deep .ngx-pagination .pagination-previous a:before,
+.pagination ::ng-deep .ngx-pagination .pagination-previous:before,
+.pagination ::ng-deep .ngx-pagination .pagination-next:after {
+  display: none;
+}
+.pagination ::ng-deep .ngx-pagination a:hover,
+.pagination ::ng-deep .ngx-pagination button:hover {
+  background: none;
+}
