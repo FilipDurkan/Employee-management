@@ -1,0 +1,108 @@
+<div class="mx-auto max-w-[1440px] px-2 sm:px-6 lg:px-8 py-6 lg:py-8">
+  <form [formGroup]="employeeForm" class="space-y-6">
+    <div>
+      <label
+        for="firstName"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >First Name</label
+      >
+      <div class="mt-2">
+        <input
+          type="text"
+          id="firstName"
+          formControlName="firstName"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+        <div
+          *ngIf="isSubmitted && employeeForm.get('firstName')?.invalid"
+          class="text-red-600 text-sm pt-2"
+        >
+          First Name is required
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label
+        for="lastName"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >Last Name</label
+      >
+      <div class="mt-2">
+        <input
+          type="text"
+          id="lastName"
+          formControlName="lastName"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+        <div
+          *ngIf="isSubmitted && employeeForm.get('lastName')?.invalid"
+          class="text-red-600 text-sm pt-2"
+        >
+          Last Name is required
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label
+        for="dateOfBirth"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >Date of Birth</label
+      >
+      <div class="mt-2">
+        <input
+          type="date"
+          id="dateOfBirth"
+          formControlName="dateOfBirth"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+        <div
+          *ngIf="isSubmitted && employeeForm.get('dateOfBirth')?.invalid"
+          class="text-red-600 text-sm pt-2"
+        >
+          Date of Birth is required
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label
+        for="jobTitle"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >Job Title</label
+      >
+      <div class="mt-2">
+        <select
+          id="jobTitle"
+          formControlName="jobTitle"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        >
+          <option value="" disabled>Select a job title</option>
+          <option value="Inženjer">Inženjer</option>
+          <option value="Konzultant">Konzultant</option>
+          <option value="Manager">Manager</option>
+          <option value="Analitičar">Analitičar</option>
+          <option value="Dizajner">Dizajner</option>
+          <option value="Programer">Programer</option>
+        </select>
+        <div
+          *ngIf="isSubmitted && employeeForm.get('jobTitle')?.invalid"
+          class="text-red-600 text-sm pt-2"
+        >
+          Job Title is required
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button
+        type="button"
+        (click)="onSave()"
+        class="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
