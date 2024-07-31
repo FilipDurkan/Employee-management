@@ -66,9 +66,22 @@
       class="-mx-4 -my-2 overflow-x-auto overflow-y-hidden sm:-mx-6 lg:-mx-8"
     >
       <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <div *ngIf="isLoading" class="min-w-full divide-y divide-gray-300">
+          <div class="animate-pulse">
+            <div class="h-10 bg-gray-200 rounded mt-4"></div>
+            <div class="flex flex-col space-y-4 mt-4">
+              <div *ngFor="let _ of [1, 2, 3, 4, 5]" class="flex space-x-4">
+                <div class="h-4 bg-gray-200 rounded w-1/4"></div>
+                <div class="h-4 bg-gray-200 rounded w-1/4"></div>
+                <div class="h-4 bg-gray-200 rounded w-1/4"></div>
+                <div class="h-4 bg-gray-200 rounded w-1/4"></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <table
           class="min-w-full divide-y divide-gray-300"
-          *ngIf="filteredEmployees.length"
+          *ngIf="filteredEmployees.length || !isLoading"
         >
           <thead>
             <tr>
@@ -183,7 +196,7 @@
           </thead>
           <tbody
             class="divide-y divide-gray-200"
-            *ngIf="filteredEmployees.length"
+            *ngIf="filteredEmployees.length && !isLoading"
           >
             <tr
               *ngFor="
@@ -209,7 +222,7 @@
             </tr>
           </tbody>
         </table>
-        <div *ngIf="filteredEmployees.length === 0">
+        <div *ngIf="filteredEmployees.length === 0 && !isLoading">
           <span class="py-4 text-center text-sm text-gray-500"
             >Nema zaposlenika prema zadanom filtriranju i pretraživanju.</span
           >
@@ -220,7 +233,7 @@
     <pagination-controls
       class="pagination"
       (pageChange)="p = $event"
-      *ngIf="filteredEmployees.length"
+      *ngIf="filteredEmployees.length || !isLoading"
     ></pagination-controls>
   </div>
 </div>

@@ -28,6 +28,7 @@ export class EmployeeListComponent implements OnInit {
   itemsPerPage: number = 5;
   searchTerm: string = '';
   filterValue: string = '';
+  isLoading: boolean = true;
 
   constructor(private employeeService: EmployeeService) {}
 
@@ -35,6 +36,7 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.getEmployees().subscribe((data) => {
       this.employees = data.data;
       this.filteredEmployees = data.data;
+      this.isLoading = false;
     });
   }
   onSearch(event: any) {
